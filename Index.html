@@ -43,12 +43,15 @@
         }
         .likert-button:hover { border-color: #3b82f6; background: #2d3748; }
         .likert-button.selected { background: #3b82f6; border-color: #3b82f6; color: white; }
-        textarea {
-            width: 100%; min-height: 140px; padding: 1rem; border: 2px solid #475569; border-radius: 6px;
+        textarea, input[type="text"], input[type="email"] {
+            width: 100%; padding: 1rem; border: 2px solid #475569; border-radius: 6px;
             background: #0f172a; color: #e2e8f0; font-family: inherit; font-size: 0.95rem; resize: vertical; transition: border-color 0.2s;
         }
-        textarea:focus { outline: none; border-color: #3b82f6; }
-        textarea::placeholder { color: #64748b; }
+        textarea {
+            min-height: 140px;
+        }
+        textarea:focus, input[type="text"]:focus, input[type="email"]:focus { outline: none; border-color: #3b82f6; }
+        textarea::placeholder, input::placeholder { color: #64748b; }
         .submit-section { margin-top: 2.5rem; padding-top: 2rem; border-top: 2px solid #3b82f6; text-align: center; }
         button {
             background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 1rem 2.5rem;
@@ -67,6 +70,13 @@
         }
         .footer a { color: #3b82f6; text-decoration: none; }
         .footer a:hover { text-decoration: underline; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.75rem; color: #f1f5f9; font-weight: 500; }
+        .thank-you-section {
+            text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #3b82f6; color: #cbd5e1; font-size: 0.95rem; line-height: 1.7;
+        }
+        .thank-you-section p { margin-bottom: 0.75rem; }
+        .thank-you-section strong { color: #f1f5f9; }
     </style>
 </head>
 <body>
@@ -152,13 +162,33 @@
                 <textarea name="q5" placeholder="Your unfiltered thoughts..."></textarea>
             </div>
 
+            <div class="question">
+                <div class="question-title">Count Me In on the AI/Automation Group!</div>
+                <div class="question-desc">Want to stay in the loop? Share your info and we'll follow up with you.</div>
+                
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com">
+                </div>
+            </div>
+
             <div class="submit-section">
                 <button type="submit">Submit Survey</button>
                 <div class="success-message" id="successMessage">
-                    ✨ Thank you! Your response has been recorded. Let's make recruiting better together (and have fun doing it).
+                    ✨ Thank you! Your response has been recorded. We'll share the results and follow up with you soon. Let's make recruiting better together (and have fun doing it).
                 </div>
             </div>
         </form>
+
+        <div class="thank-you-section">
+            <p><strong>Thank you for taking time to share your thoughts.</strong></p>
+            <p>We will share the results of this survey and follow up with you if you opted in above.</p>
+        </div>
 
         <div class="footer">
             Learn more at <a href="https://www.talentcollectiveco.com/" target="_blank">talentcollectiveco.com</a>

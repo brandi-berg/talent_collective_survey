@@ -296,4 +296,202 @@
             <div class="question">
                 <div class="question-title">Your Email</div>
                 <div class="question-desc">We use this to keep responses clean (one per person) and to send you group updates when we launch.</div>
-                <input type="email" id="email" name="e
+                <input type="email" id="email" name="email" class="email-input" placeholder="you@example.com" required>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="question">
+                <div class="question-title">Question 1: Are You In?</div>
+                <div class="question-desc">Real talk: would you actually show up to a group about AI and recruiting best practices? (We need to know if we should book the Zoom room or if this is just aspirational thinking on our part.)</div>
+                
+                <label class="checkbox-option">
+                    <input type="radio" name="q1_interest" value="Yes, absolutely—sign me up">
+                    <span class="option-text">Yes, absolutely—sign me up</span>
+                </label>
+                <label class="checkbox-option">
+                    <input type="radio" name="q1_interest" value="Yes, but only if there's actual value (no fluff)">
+                    <span class="option-text">Yes, but only if there's actual value (no fluff)</span>
+                </label>
+                <label class="checkbox-option">
+                    <input type="radio" name="q1_interest" value="Maybe—what would make it worth my time?">
+                    <span class="option-text">Maybe—what would make it worth my time?</span>
+                </label>
+                <label class="checkbox-option">
+                    <input type="radio" name="q1_interest" value="Not right now (too busy firefighting open reqs)">
+                    <span class="option-text">Not right now (too busy firefighting open reqs)</span>
+                </label>
+                <label class="checkbox-option">
+                    <input type="radio" name="q1_interest" value="Hard pass (I'm AI-allergic)">
+                    <span class="option-text">Hard pass (I'm AI-allergic)</span>
+                </label>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <div class="question-title">Question 2: What's Your AI Fluency Level?</div>
+                <div class="question-desc">Pick the one that makes you laugh (or cry).</div>
+                
+                <div class="likert-scale" id="q2-scale">
+                    <button type="button" class="likert-button" data-value="1" onclick="selectLikert(event, 'q2')">Living Under a Rock</button>
+                    <button type="button" class="likert-button" data-value="2" onclick="selectLikert(event, 'q2')">Dabbled Once</button>
+                    <button type="button" class="likert-button" data-value="3" onclick="selectLikert(event, 'q2')">Regular User</button>
+                    <button type="button" class="likert-button" data-value="4" onclick="selectLikert(event, 'q2')">Building Stuff</button>
+                    <button type="button" class="likert-button" data-value="5" onclick="selectLikert(event, 'q2')">Dream in Prompts</button>
+                </div>
+                
+                <input type="hidden" id="q2-value" name="q2_fluency">
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <div class="question-title">Question 3: What Areas of AI Interest You Most?</div>
+                <div class="question-desc">This is where you geek out (or vent). What keeps you up at night? What do you think could actually transform your recruiting operation? What do you secretly hope AI could do? Go long.</div>
+                <textarea name="q3_areas" placeholder="Lay it out for us..."></textarea>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <div class="question-title">Question 4: Where Does Your Company Stand on AI?</div>
+                <div class="question-desc">How much latitude do you actually have to experiment with AI tools at work?</div>
+                
+                <div class="likert-scale" id="q4-scale">
+                    <button type="button" class="likert-button" data-value="1" onclick="selectLikert(event, 'q4')">Not Allowed</button>
+                    <button type="button" class="likert-button" data-value="2" onclick="selectLikert(event, 'q4')">Gatekept</button>
+                    <button type="button" class="likert-button" data-value="3" onclick="selectLikert(event, 'q4')">Cautious</button>
+                    <button type="button" class="likert-button" data-value="4" onclick="selectLikert(event, 'q4')">Encouraged</button>
+                    <button type="button" class="likert-button" data-value="5" onclick="selectLikert(event, 'q4')">All-In</button>
+                </div>
+                
+                <input type="hidden" id="q4-value" name="q4_company_position">
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <div class="question-title">Question 5: Anything Else?</div>
+                <div class="question-desc">Uncensored hot takes, observations, concerns, wild ideas, or random thoughts about AI and automation in recruiting. What would actually make this group valuable to you? What are you worried about? What excites you? Lay it on us.</div>
+                <textarea name="q5_notes" placeholder="Your unfiltered thoughts..."></textarea>
+            </div>
+
+            <div class="submit-section">
+                <button type="submit" id="submitBtn">Submit Survey</button>
+                <div class="loading" id="loading">
+                    Submitting your survey...
+                </div>
+                <div class="success-message" id="successMessage">
+                    ✨ Thank you! Your response has been recorded. Let's make recruiting better together (and have fun doing it).
+                </div>
+                <div class="error-message" id="errorMessage">
+                    <span id="errorText"></span>
+                </div>
+            </div>
+        </form>
+
+        <div class="footer">
+            Learn more at <a href="https://www.talentcollectiveco.com/" target="_blank">talentcollectiveco.com</a>
+        </div>
+    </div>
+
+    <script>
+        function selectLikert(event, questionId) {
+            event.preventDefault();
+            const button = event.target;
+            const scaleId = questionId + '-scale';
+            const buttons = document.getElementById(scaleId).querySelectorAll('.likert-button');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+            document.getElementById(questionId + '-value').value = button.getAttribute('data-value');
+        }
+
+        document.getElementById('surveyForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const email = document.getElementById('email').value;
+            const q1_interest = document.querySelector('input[name="q1_interest"]:checked')?.value;
+            const q2_fluency = document.getElementById('q2-value').value;
+            const q3_areas = document.querySelector('textarea[name="q3_areas"]').value;
+            const q4_company_position = document.getElementById('q4-value').value;
+            const q5_notes = document.querySelector('textarea[name="q5_notes"]').value;
+
+            // Validate required fields
+            if (!email) {
+                showError('Please enter your email address');
+                return;
+            }
+
+            if (!q1_interest) {
+                showError('Please select your interest level for Question 1');
+                return;
+            }
+
+            if (!q2_fluency) {
+                showError('Please select your AI fluency level for Question 2');
+                return;
+            }
+
+            if (!q4_company_position) {
+                showError('Please select your company AI position for Question 4');
+                return;
+            }
+
+            // Show loading state
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+
+            // Prepare data
+            const formData = {
+                email,
+                q1_interest,
+                q2_fluency: parseInt(q2_fluency),
+                q3_areas,
+                q4_company_position: parseInt(q4_company_position),
+                q5_notes,
+            };
+
+            try {
+                // Submit to Netlify Function
+                const response = await fetch('/.netlify/functions/submit-survey', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Success
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('surveyForm').reset();
+                    document.querySelectorAll('.likert-button').forEach(btn => btn.classList.remove('selected'));
+                    
+                    // Hide success message after 4 seconds
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 4000);
+                } else {
+                    // Error response
+                    showError(data.error || 'An error occurred. Please try again.');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                showError('Network error. Please check your connection and try again.');
+            } finally {
+                document.getElementById('submitBtn').disabled = false;
+                document.getElementById('loading').style.display = 'none';
+            }
+        });
+
+        function showError(message) {
+            document.getElementById('errorText').textContent = message;
+            document.getElementById('errorMessage').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('errorMessage').style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

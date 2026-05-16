@@ -290,8 +290,8 @@
                 We'll use this group to share real wins, failures, and shortcuts—the stuff that actually moves recruiting metrics. Whether you're building MCPs at 2 AM or you still think "prompt" is just what a theater director does, this is your space. No judgment. Just collective learning. (Pun intended.) We're launching because great recruiting leaders deserve great tools, and even better weirdos to figure them out with. <strong>Let's build it.</strong>
             </div>
         </div>
-       <form id="surveyForm" action="https://formspree.io/f/xnjrapjp" method="POST">
-   <input type="hidden" name="_next" value="/success.html">
+<form id="surveyForm" action="https://formspree.io/f/xnjrapjp" method="POST">
+    <input type="hidden" name="_captcha" value="false">
             <div class="question">
                 <div class="question-title">Your Email</div>
                 <div class="question-desc">We use this to keep responses clean and to send you group updates when we launch.</div>
@@ -406,4 +406,13 @@
         });
     </script>
 </body>
+<script>
+document.getElementById('surveyForm').addEventListener('submit', function(e) {
+  // Allow form to submit to Formspree
+  // Then redirect after 2 seconds
+  setTimeout(function() {
+    window.location.href = '/success.html';
+  }, 2000);
+});
+</script>
 </html>

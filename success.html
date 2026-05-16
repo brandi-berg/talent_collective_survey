@@ -1,0 +1,127 @@
+cat > ~/talent-collective-survey/success.html << 'EOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Talent Collective</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+            background: #1a202c;
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid #2d3748;
+            text-align: center;
+        }
+
+        .checkmark {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: bounce 0.6s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: #2d3748;
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            padding: 0.875rem 2.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #475569;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .footer a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkmark">✨</div>
+        
+        <h1>Thank You!</h1>
+        <p>Your response has been recorded. We'll review your answers and follow up with you soon.</p>
+        
+        <div class="highlight">
+            <p>We're excited to build this AI & Automation Mastermind Group with you. Let's make recruiting better together (and have fun doing it).</p>
+        </div>
+
+        <p style="margin-top: 2rem; font-size: 1rem;">In the meantime, check out:</p>
+        
+        <a href="https://www.talentcollectiveco.com/" class="button" target="_blank">Learn More About Talent Collective</a>
+
+        <div class="footer">
+            <p>Questions? Reach out to Krista, Nicole, and Brandi at Talent Collective.</p>
+        </div>
+    </div>
+</body>
+</html>

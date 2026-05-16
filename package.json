@@ -1,0 +1,15 @@
+{
+  "name": "talent-collective-survey",
+  "version": "1.0.0",
+  "description": "AI & Automation Mastermind Group Survey",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["survey", "netlify", "database"],
+  "author": "Talent Collective",
+  "license": "MIT",
+  "dependencies": {
+    "@netlify/database": "^1.0.0"
+  }
+}

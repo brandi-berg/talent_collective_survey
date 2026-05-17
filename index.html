@@ -1,432 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talent Collective AI & Automation Survey</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talent Collective AI & Automation Survey</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #e2e8f0;
-            padding: 2rem 1rem;
-            min-height: 100vh;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
 
-        .container {
-            max-width: 750px;
-            margin: 0 auto;
-            background: #1a202c;
-            border-radius: 12px;
-            padding: 3rem 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            border: 1px solid #2d3748;
-        }
+    .container {
+      max-width: 750px;
+      margin: 0 auto;
+      background: #1a202c;
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      border: 1px solid #2d3748;
+    }
 
-        .header {
-            margin-bottom: 2.5rem;
-            border-bottom: 2px solid #3b82f6;
-            padding-bottom: 2rem;
-        }
+    .header {
+      margin-bottom: 2.5rem;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 2rem;
+    }
 
-        .header h1 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: #60a5fa;
-        }
+    .header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #60a5fa;
+    }
 
-        .header h2 {
-            font-size: 1.3rem;
-            color: #a0aec0;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
+    .header h2 {
+      font-size: 1.3rem;
+      color: #a0aec0;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
 
-        .header p {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            color: #cbd5e1;
-            margin-bottom: 1rem;
-        }
+    .header p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #cbd5e1;
+      margin-bottom: 1rem;
+    }
 
-        .intro-highlight {
-            background: #2d3748;
-            border-left: 4px solid #3b82f6;
-            padding: 1rem;
-            margin-top: 1.5rem;
-            border-radius: 4px;
-            font-style: italic;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
+    .intro-highlight {
+      background: #2d3748;
+      border-left: 4px solid #3b82f6;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      border-radius: 4px;
+      font-style: italic;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
 
-        .question {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #2d3748;
-        }
+    .question {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #2d3748;
+    }
 
-        .question:last-of-type {
-            border-bottom: none;
-        }
+    .question:last-of-type {
+      border-bottom: none;
+    }
 
-        .question-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #f1f5f9;
-        }
+    .question-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #f1f5f9;
+    }
 
-        .question-desc {
-            font-size: 0.95rem;
-            color: #cbd5e1;
-            margin-bottom: 1.25rem;
-            line-height: 1.6;
-        }
+    .question-desc {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
 
-        .checkbox-option {
-            display: flex;
-            align-items: flex-start;
-            padding: 0.75rem 0;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
+    .checkbox-option {
+      display: flex;
+      align-items: flex-start;
+      padding: 0.75rem 0;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
 
-        .checkbox-option:hover {
-            color: #60a5fa;
-        }
+    .checkbox-option:hover {
+      color: #60a5fa;
+    }
 
-        .checkbox-option input[type="checkbox"],
-        .checkbox-option input[type="radio"] {
-            margin-right: 0.75rem;
-            margin-top: 0.25rem;
-            cursor: pointer;
-            width: 18px;
-            height: 18px;
-            accent-color: #3b82f6;
-            flex-shrink: 0;
-        }
+    .checkbox-option input[type="checkbox"],
+    .checkbox-option input[type="radio"] {
+      margin-right: 0.75rem;
+      margin-top: 0.25rem;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+      accent-color: #3b82f6;
+      flex-shrink: 0;
+    }
 
-        .option-text {
-            font-size: 0.95rem;
-            color: #cbd5e1;
-        }
+    .option-text {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
 
-        .email-input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #475569;
-            border-radius: 6px;
-            background: #0f172a;
-            color: #e2e8f0;
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: border-color 0.2s;
-            margin-bottom: 1rem;
-        }
+    .email-input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #475569;
+      border-radius: 6px;
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      margin-bottom: 1rem;
+    }
 
-        .email-input:focus {
-            outline: none;
-            border-color: #3b82f6;
-        }
+    .email-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
 
-        .email-input::placeholder {
-            color: #64748b;
-        }
+    .email-input::placeholder {
+      color: #64748b;
+    }
 
-        .likert-scale {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.75rem;
-            margin: 1.5rem 0;
-        }
+    /* ── Likert scale: 5 columns on desktop ── */
+    .likert-scale {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
 
-        .likert-button {
-            padding: 0.75rem 0.5rem;
-            border: 2px solid #475569;
-            background: #1a202c;
-            color: #e2e8f0;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 0.85rem;
-            transition: all 0.2s;
-            line-height: 1.2;
-        }
+    .likert-button {
+      padding: 0.75rem 0.5rem;
+      border: 2px solid #475569;
+      background: #1a202c;
+      color: #e2e8f0;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      line-height: 1.2;
+      text-align: center;
+    }
 
-        .likert-button:hover {
-            border-color: #3b82f6;
-            background: #2d3748;
-        }
+    .likert-button:hover {
+      border-color: #3b82f6;
+      background: #2d3748;
+    }
 
-        .likert-button.selected {
-            background: #3b82f6;
-            border-color: #3b82f6;
-            color: white;
-        }
+    .likert-button.selected {
+      background: #3b82f6;
+      border-color: #3b82f6;
+      color: white;
+    }
 
-        textarea {
-            width: 100%;
-            min-height: 140px;
-            padding: 1rem;
-            border: 2px solid #475569;
-            border-radius: 6px;
-            background: #0f172a;
-            color: #e2e8f0;
-            font-family: inherit;
-            font-size: 0.95rem;
-            resize: vertical;
-            transition: border-color 0.2s;
-        }
+    textarea {
+      width: 100%;
+      min-height: 140px;
+      padding: 1rem;
+      border: 2px solid #475569;
+      border-radius: 6px;
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+      transition: border-color 0.2s;
+    }
 
-        textarea:focus {
-            outline: none;
-            border-color: #3b82f6;
-        }
+    textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
 
-        textarea::placeholder {
-            color: #64748b;
-        }
+    textarea::placeholder {
+      color: #64748b;
+    }
 
-        .submit-section {
-            margin-top: 2.5rem;
-            padding-top: 2rem;
-            border-top: 2px solid #3b82f6;
-            text-align: center;
-        }
+    .submit-section {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 2px solid #3b82f6;
+      text-align: center;
+    }
 
-        button {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            color: white;
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-        }
+    button {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      color: white;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
 
-        button:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
-        }
+    button:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
+    }
 
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
 
-        button:active:not(:disabled) {
-            transform: translateY(0);
-        }
+    button:active:not(:disabled) {
+      transform: translateY(0);
+    }
 
-        .success-message {
-            display: none;
-            background: #0f766e;
-            border: 2px solid #14b8a6;
-            color: #d1fae5;
-            padding: 1rem;
-            border-radius: 6px;
-            margin-top: 1rem;
-            text-align: center;
-            font-weight: 500;
-        }
+    .success-message {
+      display: none;
+      background: #0f766e;
+      border: 2px solid #14b8a6;
+      color: #d1fae5;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: 500;
+    }
 
-        .error-message {
-            display: none;
-            background: #7c2d12;
-            border: 2px solid #ea580c;
-            color: #fed7aa;
-            padding: 1rem;
-            border-radius: 6px;
-            margin-top: 1rem;
-            text-align: center;
-            font-weight: 500;
-        }
+    .error-message {
+      display: none;
+      background: #7c2d12;
+      border: 2px solid #ea580c;
+      color: #fed7aa;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: 500;
+    }
 
-        .loading {
-            display: none;
-            text-align: center;
-            color: #cbd5e1;
-        }
+    .loading {
+      display: none;
+      text-align: center;
+      color: #cbd5e1;
+    }
 
-        .footer {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #475569;
-            font-size: 0.9rem;
-            color: #94a3b8;
-        }
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #475569;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
 
-        .footer a {
-            color: #3b82f6;
-            text-decoration: none;
-        }
+    .footer a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
 
-        .footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ────────────────────────────────────────────
+       RESPONSIVE: tablet (≤ 600px)
+       Likert scale → 3 columns
+    ──────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .container {
+        padding: 2rem 1rem;
+      }
+
+      .header h1 {
+        font-size: 1.5rem;
+      }
+
+      .header h2 {
+        font-size: 1.1rem;
+      }
+
+      .likert-scale {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* ────────────────────────────────────────────
+       RESPONSIVE: small mobile (≤ 420px)
+       Likert scale → 1 column (full-width stacked)
+    ──────────────────────────────────────────── */
+    @media (max-width: 420px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
+
+      .container {
+        padding: 1.5rem 0.875rem;
+        border-radius: 8px;
+      }
+
+      .header h1 {
+        font-size: 1.3rem;
+      }
+
+      .likert-scale {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+
+      .likert-button {
+        padding: 0.875rem 1rem;
+        font-size: 0.9rem;
+        text-align: left;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🚀 Talent Collective</h1>
-            <h2>AI & Automation Mastermind Group</h2>
-            
-            <p><strong>Welcome to the Talent Collective AI & Automation Mastermind Group</strong></p>
-            <p>As co-leaders of AI Mastermind Group, we're building a community of talented recruiters who've stopped asking "should we use AI?" and started asking "how do we use it without accidentally hiring a sentient chatbot as our VP of Sales?"</p>
-            
-            <div class="intro-highlight">
-                We'll use this group to share real wins, failures, and shortcuts—the stuff that actually moves recruiting metrics. Whether you're building MCPs at 2 AM or you still think "prompt" is just what a theater director does, this is your space. No judgment. Just collective learning. (Pun intended.) We're launching because great recruiting leaders deserve great tools, and even better weirdos to figure them out with. <strong>Let's build it.</strong>
-            </div>
-        </div>
-<form id="surveyForm" action="https://formspree.io/f/xnjrapjp" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="/redirect.html">
+  <div class="container">
+    <div class="header">
+      <h1>🚀 Talent Collective</h1>
+      <h2>AI & Automation Mastermind Group</h2>
 
-            <div class="question">
-                <div class="question-title">Question 1: Are You In?</div>
-                <div class="question-desc">Real talk: would you actually show up to a group about AI and recruiting best practices? (We need to know if we should book the Zoom room or if this is just aspirational thinking on our part.)</div>
-                
-                <label class="checkbox-option">
-                    <input type="radio" name="q1_interest" value="Yes, absolutely—sign me up" required>
-                    <span class="option-text">Yes, absolutely—sign me up</span>
-                </label>
-                <label class="checkbox-option">
-                    <input type="radio" name="q1_interest" value="Yes, but only if there's actual value (no fluff)">
-                    <span class="option-text">Yes, but only if there's actual value (no fluff)</span>
-                </label>
-                <label class="checkbox-option">
-                    <input type="radio" name="q1_interest" value="Maybe—what would make it worth my time?">
-                    <span class="option-text">Maybe—what would make it worth my time?</span>
-                </label>
-                <label class="checkbox-option">
-                    <input type="radio" name="q1_interest" value="Not right now (too busy firefighting open reqs)">
-                    <span class="option-text">Not right now (too busy firefighting open reqs)</span>
-                </label>
-                <label class="checkbox-option">
-                    <input type="radio" name="q1_interest" value="Hard pass (I'm AI-allergic)">
-                    <span class="option-text">Hard pass (I'm AI-allergic)</span>
-                </label>
-            </div>
+      <p><strong>Welcome to the Talent Collective AI & Automation Mastermind Group</strong></p>
+      <p>As co-leaders of AI Mastermind Group, we're building a community of talented recruiters who've stopped asking "should we use AI?" and started asking "how do we use it without accidentally hiring a sentient chatbot as our VP of Sales?"</p>
 
-            <div class="question">
-                <div class="question-title">Question 2: What's Your AI Fluency Level?</div>
-                <div class="question-desc">Pick the one that makes you laugh (or cry).</div>
-                
-                <div class="likert-scale" id="q2-scale">
-                    <button type="button" class="likert-button" data-value="1" data-name="q2_fluency" onclick="selectLikert(event)">Living Under a Rock</button>
-                    <button type="button" class="likert-button" data-value="2" data-name="q2_fluency" onclick="selectLikert(event)">Dabbled Once</button>
-                    <button type="button" class="likert-button" data-value="3" data-name="q2_fluency" onclick="selectLikert(event)">Regular User</button>
-                    <button type="button" class="likert-button" data-value="4" data-name="q2_fluency" onclick="selectLikert(event)">Building Stuff</button>
-                    <button type="button" class="likert-button" data-value="5" data-name="q2_fluency" onclick="selectLikert(event)">Dream in Prompts</button>
-                </div>
-                
-                <input type="hidden" id="q2_fluency" name="q2_fluency" required>
-            </div>
-
-            <div class="question">
-                <div class="question-title">Question 3: What Areas of AI Interest You Most?</div>
-                <div class="question-desc">This is where you geek out (or vent). What keeps you up at night? What do you think could actually transform your recruiting operation? What do you secretly hope AI could do? Go long.</div>
-                <textarea name="q3_areas" placeholder="Lay it out for us..."></textarea>
-            </div>
-
-            <div class="question">
-                <div class="question-title">Question 4: Where Does Your Company Stand on AI?</div>
-                <div class="question-desc">How much latitude do you actually have to experiment with AI tools at work?</div>
-                
-                <div class="likert-scale" id="q4-scale">
-                    <button type="button" class="likert-button" data-value="1" data-name="q4_company_position" onclick="selectLikert(event)">Not Allowed</button>
-                    <button type="button" class="likert-button" data-value="2" data-name="q4_company_position" onclick="selectLikert(event)">Gatekept</button>
-                    <button type="button" class="likert-button" data-value="3" data-name="q4_company_position" onclick="selectLikert(event)">Cautious</button>
-                    <button type="button" class="likert-button" data-value="4" data-name="q4_company_position" onclick="selectLikert(event)">Encouraged</button>
-                    <button type="button" class="likert-button" data-value="5" data-name="q4_company_position" onclick="selectLikert(event)">All-In</button>
-                </div>
-                
-                <input type="hidden" id="q4_company_position" name="q4_company_position" required>
-            </div>
-
-            <div class="question">
-                <div class="question-title">Question 5: Anything Else?</div>
-                <div class="question-desc">Uncensored hot takes, observations, concerns, wild ideas, or random thoughts about AI and automation in recruiting. What would actually make this group valuable to you? What are you worried about? What excites you? Lay it on us.</div>
-                <textarea name="q5_notes" placeholder="Your unfiltered thoughts..."></textarea>
-            </div>
-
-            <div class="question">
-                <div class="question-title">Please keep me updated on the AI Mastermind Group</div>
-                
-                <div class="question">
-                    <div class="question-desc">Your Name</div>
-                    <input type="text" name="name" class="email-input" placeholder="Your name">
-                </div>
-
-                <div class="question">
-                    <div class="question-desc">Your Email</div>
-                    <input type="email" name="email" class="email-input" placeholder="you@example.com" required>
-                </div>
-            </div>
-
-            <div style="margin-top: 2rem; padding: 1rem; background: #2d3748; border-radius: 6px; font-size: 0.9rem; color: #cbd5e1; line-height: 1.6;">
-                Thank you for taking time to share your thoughts. We will share the results of this survey and follow up with you if you opted in above.
-            </div>
-            
-            <div class="submit-section">
-                <button type="submit">Submit Survey</button>
-                <div class="loading" id="loading">
-                    Submitting your survey...
-                </div>
-            </div>
-        </form>
-
-        <div class="footer">
-            Learn more at <a href="https://www.talentcollectiveco.com/" target="_blank">talentcollectiveco.com</a>
-        </div>
+      <div class="intro-highlight">
+        We'll use this group to share real wins, failures, and shortcuts—the stuff that actually moves recruiting metrics. Whether you're building MCPs at 2 AM or you still think "prompt" is just what a theater director does, this is your space. No judgment. Just collective learning. (Pun intended.) We're launching because great recruiting leaders deserve great tools, and even better weirdos to figure them out with. <strong>Let's build it.</strong>
+      </div>
     </div>
 
-    <script>
-        function selectLikert(event) {
-            event.preventDefault();
-            const button = event.target;
-            const fieldName = button.getAttribute('data-name');
-            const value = button.getAttribute('data-value');
-            
-            const scale = button.parentElement;
-            const buttons = scale.querySelectorAll('.likert-button');
-            buttons.forEach(btn => btn.classList.remove('selected'));
-            button.classList.add('selected');
-            
-            document.getElementById(fieldName).value = value;
-        }
+    <form id="surveyForm" action="https://formspree.io/f/xnjrapjp" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="/redirect.html">
 
-        document.getElementById('surveyForm').addEventListener('submit', function(e) {
-            const q2 = document.getElementById('q2_fluency').value;
-            const q4 = document.getElementById('q4_company_position').value;
-            
-            if (!q2 || !q4) {
-                e.preventDefault();
-                alert('Please select your AI fluency level and company position');
-                return;
-            }
-        });
-    </script>
+      <div class="question">
+        <div class="question-title">Question 1: Are You In?</div>
+        <div class="question-desc">Real talk: would you actually show up to a group about AI and recruiting best practices? (We need to know if we should book the Zoom room or if this is just aspirational thinking on our part.)</div>
+
+        <label class="checkbox-option">
+          <input type="radio" name="q1_interest" value="Yes, absolutely—sign me up" required>
+          <span class="option-text">Yes, absolutely—sign me up</span>
+        </label>
+        <label class="checkbox-option">
+          <input type="radio" name="q1_interest" value="Yes, but only if there's actual value (no fluff)">
+          <span class="option-text">Yes, but only if there's actual value (no fluff)</span>
+        </label>
+        <label class="checkbox-option">
+          <input type="radio" name="q1_interest" value="Maybe—what would make it worth my time?">
+          <span class="option-text">Maybe—what would make it worth my time?</span>
+        </label>
+        <label class="checkbox-option">
+          <input type="radio" name="q1_interest" value="Not right now (too busy firefighting open reqs)">
+          <span class="option-text">Not right now (too busy firefighting open reqs)</span>
+        </label>
+        <label class="checkbox-option">
+          <input type="radio" name="q1_interest" value="Hard pass (I'm AI-allergic)">
+          <span class="option-text">Hard pass (I'm AI-allergic)</span>
+        </label>
+      </div>
+
+      <div class="question">
+        <div class="question-title">Question 2: What's Your AI Fluency Level?</div>
+        <div class="question-desc">Pick the one that makes you laugh (or cry).</div>
+
+        <div class="likert-scale" id="q2-scale">
+          <button type="button" class="likert-button" data-value="1" data-name="q2_fluency" onclick="selectLikert(event)">Living Under a Rock</button>
+          <button type="button" class="likert-button" data-value="2" data-name="q2_fluency" onclick="selectLikert(event)">Dabbled Once</button>
+          <button type="button" class="likert-button" data-value="3" data-name="q2_fluency" onclick="selectLikert(event)">Regular User</button>
+          <button type="button" class="likert-button" data-value="4" data-name="q2_fluency" onclick="selectLikert(event)">Building Stuff</button>
+          <button type="button" class="likert-button" data-value="5" data-name="q2_fluency" onclick="selectLikert(event)">Dream in Prompts</button>
+        </div>
+
+        <input type="hidden" id="q2_fluency" name="q2_fluency" required>
+      </div>
+
+      <div class="question">
+        <div class="question-title">Question 3: What Areas of AI Interest You Most?</div>
+        <div class="question-desc">This is where you geek out (or vent). What keeps you up at night? What do you think could actually transform your recruiting operation? What do you secretly hope AI could do? Go long.</div>
+        <textarea name="q3_areas" placeholder="Lay it out for us..."></textarea>
+      </div>
+
+      <div class="question">
+        <div class="question-title">Question 4: Where Does Your Company Stand on AI?</div>
+        <div class="question-desc">How much latitude do you actually have to experiment with AI tools at work?</div>
+
+        <div class="likert-scale" id="q4-scale">
+          <button type="button" class="likert-button" data-value="1" data-name="q4_company_position" onclick="selectLikert(event)">Not Allowed</button>
+          <button type="button" class="likert-button" data-value="2" data-name="q4_company_position" onclick="selectLikert(event)">Gatekept</button>
+          <button type="button" class="likert-button" data-value="3" data-name="q4_company_position" onclick="selectLikert(event)">Cautious</button>
+          <button type="button" class="likert-button" data-value="4" data-name="q4_company_position" onclick="selectLikert(event)">Encouraged</button>
+          <button type="button" class="likert-button" data-value="5" data-name="q4_company_position" onclick="selectLikert(event)">All-In</button>
+        </div>
+
+        <input type="hidden" id="q4_company_position" name="q4_company_position" required>
+      </div>
+
+      <div class="question">
+        <div class="question-title">Question 5: Anything Else?</div>
+        <div class="question-desc">Uncensored hot takes, observations, concerns, wild ideas, or random thoughts about AI and automation in recruiting. What would actually make this group valuable to you? What are you worried about? What excites you? Lay it on us.</div>
+        <textarea name="q5_notes" placeholder="Your unfiltered thoughts..."></textarea>
+      </div>
+
+      <div class="question">
+        <div class="question-title">Please keep me updated on the AI Mastermind Group</div>
+
+        <div class="question">
+          <div class="question-desc">Your Name</div>
+          <input type="text" name="name" class="email-input" placeholder="Your name">
+        </div>
+        <div class="question">
+          <div class="question-desc">Your Email</div>
+          <input type="email" name="email" class="email-input" placeholder="you@example.com" required>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem; padding: 1rem; background: #2d3748; border-radius: 6px; font-size: 0.9rem; color: #cbd5e1; line-height: 1.6;">
+        Thank you for taking time to share your thoughts. We will share the results of this survey and follow up with you if you opted in above.
+      </div>
+
+      <div class="submit-section">
+        <button type="submit">Submit Survey</button>
+        <div class="loading" id="loading">
+          Submitting your survey...
+        </div>
+      </div>
+    </form>
+
+    <div class="footer">
+      Learn more at <a href="https://www.talentcollectiveco.com/" target="_blank">talentcollectiveco.com</a>
+    </div>
+  </div>
+
+  <script>
+    function selectLikert(event) {
+      event.preventDefault();
+      const button = event.target;
+      const fieldName = button.getAttribute('data-name');
+      const value = button.getAttribute('data-value');
+
+      const scale = button.parentElement;
+      const buttons = scale.querySelectorAll('.likert-button');
+      buttons.forEach(btn => btn.classList.remove('selected'));
+      button.classList.add('selected');
+
+      document.getElementById(fieldName).value = value;
+    }
+
+    document.getElementById('surveyForm').addEventListener('submit', function(e) {
+      const q2 = document.getElementById('q2_fluency').value;
+      const q4 = document.getElementById('q4_company_position').value;
+
+      if (!q2 || !q4) {
+        e.preventDefault();
+        alert('Please select your AI fluency level and company position');
+        return;
+      }
+    });
+  </script>
+
+  <script>
+    document.getElementById('surveyForm').addEventListener('submit', function(e) {
+      // Allow form to submit to Formspree
+      // Then redirect after 2 seconds
+      setTimeout(function() {
+        window.location.href = '/success.html';
+      }, 2000);
+    });
+  </script>
 </body>
-<script>
-document.getElementById('surveyForm').addEventListener('submit', function(e) {
-  // Allow form to submit to Formspree
-  // Then redirect after 2 seconds
-  setTimeout(function() {
-    window.location.href = '/success.html';
-  }, 2000);
-});
-</script>
 </html>
